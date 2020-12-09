@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import store from "./redux/store";
+
+import "antd/dist/antd.dark.min.css";
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div style={{ width: "100%", height: "100%"}}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </div>,
   document.getElementById('root')
 );
 
