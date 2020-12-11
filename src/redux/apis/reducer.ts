@@ -33,7 +33,6 @@ const initialState: IApiState = {
 };
 
 const apiReducer = (state: IApiState = initialState, action: IActionGetAlbums | IActionGetAlbumsResponse | IActionGetAlbumsFailed | IActionGetPhotos | IActionGetPhotosResponse | IActionGetPhotosFailed) => {
-  console.log("state: ", state, action);
   switch (action.type) {
     case ACTION_GET_ALBUMS:
       return {

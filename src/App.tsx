@@ -13,7 +13,7 @@ interface IApp {
   getPhotos: () => void;
 }
 
-const App: FC<IApp> = ({ albums, photos, albumsError, photosError, getAlbums, getPhotos }) => {
+export const App: FC<IApp> = ({ albums, photos, albumsError, photosError, getAlbums, getPhotos }) => {
   useEffect(() => {
     getAlbums();
     getPhotos();
@@ -24,7 +24,6 @@ const App: FC<IApp> = ({ albums, photos, albumsError, photosError, getAlbums, ge
   const [selectedPhoto, setSelectedPhoto] = useState<IPhotoInfo | undefined>(undefined)
 
   const onAlbumClick = (album: IAlbumInfo) => {
-    console.log("!!!onAlbumClick: ", album);
     if (album.id === selectedAlbum?.id) {
       setSelectedAlbum(undefined);
       setAlbumPhotos([]);
@@ -71,7 +70,7 @@ const App: FC<IApp> = ({ albums, photos, albumsError, photosError, getAlbums, ge
           </List.Item>)}
       />
       <Modal title={selectedPhoto?.title} visible={selectedPhoto !== undefined} onOk={() => setSelectedPhoto(undefined)} onCancel={() => setSelectedPhoto(undefined)} width={800}>
-        <img alt="full image" src={selectedPhoto?.url} />
+        <img alt="full" src={selectedPhoto?.url} />
       </Modal>
     </>);
   }

@@ -13,7 +13,6 @@ export function* getAlbumsRequest() {
       url: CONST_ALBUMS_URL,
       method: "GET"
     });
-    console.log("!!!!getAlbumsRequest", result.data);
     yield put(actionGetAlbumsResponse(result.data));
   } catch (err) {
     yield put(actionGetAlbumsFailed(err));
